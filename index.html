@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<head>
+    <title>AW</title>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <script>
+        var countDownDate = new Date("Dec 1, 2018 13:00:00").getTime();
+
+        var x = setInterval(function() {
+
+            var now = new Date().getTime();
+
+
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = days + "d " + hours + "h " +
+                minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "COMING SOON";
+            }
+        }, 1000);
+
+    </script>
+    <style>
+        html {
+            height: 100%;
+            width: 100%;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #timer {
+            font-size: 40px;
+        }
+
+        body {
+            background-color: slategray;
+            height: auto;
+            width: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        #content {
+            background-color: whitesmoke;
+            text-align: center;
+            width: 80%;
+            height: auto;
+            margin-top: 20px;
+            padding: 0px 15px 10px 15px;
+        }
+        #message {
+            text-align: left
+        }
+
+        
+        h1 {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        p {
+            font-weight: 300;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div id="content">
+
+        <h1>Drinking Ticket</h1>
+        <h2>The End Of An Era</h2>
+        <p id="timer"></p>
+        
+
+    </div>
+</body>
